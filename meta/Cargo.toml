@@ -1,0 +1,14 @@
+[package]
+name = "example-contract-meta"
+version = "0.0.0"
+authors = [ "you",]
+edition = "2018"
+publish = false
+
+[dev-dependencies]
+
+[dependencies.example-contract]
+path = ".."
+
+[dependencies.elrond-wasm-debug]
+version = "0.36.1"

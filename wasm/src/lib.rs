@@ -5,7 +5,7 @@
 #![no_std]
 
 elrond_wasm_node::wasm_endpoints! {
-    ping_pong_egld
+    example_contract
     (
         getActivationTimestamp
         getDeadline

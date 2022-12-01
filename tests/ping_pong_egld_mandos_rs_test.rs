@@ -2,11 +2,10 @@ use elrond_wasm_debug::*;
 
 fn world() -> BlockchainMock {
   let mut blockchain = BlockchainMock::new();
-  blockchain.set_current_dir_from_workspace("contracts/examples/ping-pong-egld");
 
   blockchain.register_contract_builder(
-    "file:output/ping-pong-egld.wasm",
-    ping_pong_egld::ContractBuilder,
+    "file:output/example-contract.wasm",
+    example_contract::ContractBuilder,
   );
   blockchain
 }

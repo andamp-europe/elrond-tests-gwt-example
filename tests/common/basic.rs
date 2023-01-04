@@ -51,7 +51,7 @@ pub fn when_pinging<T: ContractBuilder>(
 ) -> TxResult {
   setup
     .blockchain_wrapper
-    .execute_tx(&user, &setup.contract, &rust_biguint!(amount), |sc| {
+    .execute_tx(user, &setup.contract, &rust_biguint!(amount), |sc| {
       sc.ping(IgnoreValue {});
     })
 }
@@ -73,9 +73,7 @@ pub fn then_user_should_have_egld<T: ContractBuilder>(
   assert_eq!(
     balance,
     rust_biguint!(expected_balance),
-    "expected to have {} EGLD, but was {} EGLD",
-    expected_balance,
-    balance
+    "expected to have {expected_balance} EGLD, but was {balance} EGLD"
   );
 }
 

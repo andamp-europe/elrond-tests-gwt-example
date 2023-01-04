@@ -2,7 +2,6 @@ use elrond_wasm_debug::{rust_biguint, testing_framework::*, tx_mock::TxResult, D
 use example_contract::*;
 
 use elrond_wasm::types::Address;
-use elrond_wasm_debug::num_bigint::BigUint;
 
 const WASM_PATH: &str = "output/warriorz-dao.wasm";
 
@@ -33,7 +32,7 @@ where
   }
 }
 
-pub fn setup_contract<T: ContractBuilder>(dao_contract_builder: T) -> TestSetup<T> {
+pub fn prepare_setup<T: ContractBuilder>(dao_contract_builder: T) -> TestSetup<T> {
   let mut blockchain_wrapper = BlockchainStateWrapper::new();
   let owner = blockchain_wrapper.create_user_account(&rust_biguint!(0));
   let contract_wrapper = blockchain_wrapper.create_sc_account(
@@ -59,10 +58,10 @@ pub fn setup_contract<T: ContractBuilder>(dao_contract_builder: T) -> TestSetup<
 
 pub fn deploy_contract<T: ContractBuilder>(
   contract_setup: &mut TestSetup<T>,
-  ping_amount: &BigUint,
+  ping_amount: u64,
   duration_in_seconds: u64,
   opt_activation_timestamp: Option<u64>,
-  max_funds: Option<BigUint>,
+  max_funds: Option<u64>,
 ) -> TxResult {
   contract_setup.blockchain_wrapper.execute_tx(
     &contract_setup.users.owner,

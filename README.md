@@ -5,4 +5,4 @@ The contract used in this repository was created based on the ping-pong example 
 
 The contract was not modified, but only supplemented by exemplary tests in the Given-When-Then (GWT) style. You can run the GWT tests like this: `cargo test --test gwt_test`
 
-Find out more about the intentions behind this in [this blog post](https://medium.com/@michaeljank/47720f9b0297).
+Find out more about the intentions behind this in [this blog post](https://medium.com/@michaeljank/testing-multiversx-former-elrond-smart-contracts-47720f9b0297).
